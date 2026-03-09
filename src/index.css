@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-backend-green: #00ffb2;
+  --color-backend-teal: #00c896;
+  --color-backend-cyan: #0ff;
+  --color-backend-accent: #2cf2c0;
+}
+
+@layer base {
+  body {
+    @apply bg-[#000000] text-white font-sans antialiased selection:bg-backend-green/30 selection:text-backend-green;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif tracking-tight;
+  }
+
+  h4, h5, h6 {
+    @apply font-serif tracking-normal;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-[#050505]/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+  }
+
+  .glow-green {
+    @apply shadow-[0_0_50px_-12px_rgba(0,255,178,0.3)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50;
+  }
+
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-backend-green to-backend-cyan;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 4s infinite ease-in-out;
+  }
+
+  .animate-dash {
+    animation: dash-move 3s linear infinite;
+  }
+
+  .particle-animate {
+    animation: particle-flow 3s infinite linear;
+  }
+
+  .animate-salary-grow {
+    @apply animate-[salary-grow_4s_infinite_ease-in-out];
+  }
+
+  .animate-move-x {
+    animation: move-x 2s linear infinite;
+  }
+
+  .animate-move-x-reverse {
+    animation: move-x-reverse 2s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-reverse-spin-slow {
+    animation: reverse-spin 12s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes reverse-spin {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes salary-grow {
+  0%, 100% { width: 20%; }
+  50% { width: 100%; }
+}
+
+@keyframes dash-move {
+  from { background-position: 0% 0%; }
+  to { background-position: 200% 0%; }
+}
+
+@keyframes move-x {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes move-x-reverse {
+  0% { right: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { right: 100%; opacity: 0; }
+}
+
+@keyframes particle-flow {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-50% + (var(--x, 100px) * 0.8)), calc(-50% + (var(--y, 100px) * 0.8))) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Node animation variants */
+.node-animate-0 { animation: node-pulse 4s infinite ease-in-out; }
+.node-animate-1 { animation: node-pulse 4s infinite ease-in-out 0.5s; }
+.node-animate-2 { animation: node-pulse 4s infinite ease-in-out 1s; }
+.node-animate-3 { animation: node-pulse 4s infinite ease-in-out 1.5s; }
+.node-animate-4 { animation: node-pulse 4s infinite ease-in-out 2s; }
+.node-animate-5 { animation: node-pulse 4s infinite ease-in-out 2.5s; }
+
+@keyframes node-pulse {
+  0%, 100% { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
+  50% { border-color: rgba(0,255,178,0.3); background: rgba(0,255,178,0.05); }
+}
+
+/* Custom animations */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.05;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.radial-glow {
+  background: radial-gradient(circle at center, var(--color-backend-green) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.15;
+}
