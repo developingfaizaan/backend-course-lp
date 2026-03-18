@@ -100,13 +100,13 @@ const HeroSection = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
             <div className="flex-1 flex flex-col justify-between relative z-10">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Skill Mastery (Select to Unlock)</div>
+                  <div className="hidden sm:block text-[10px] font-mono text-white/40 uppercase tracking-widest">Skill Mastery (Select to Unlock)</div>
                   <div className="px-2 py-0.5 rounded bg-backend-green/10 border border-backend-green/20 text-[8px] font-bold text-backend-green uppercase">
                     Level: {getJobTitle(currentSalary)}
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                   {skills.map((skill, i) => (
                     <button 
                       key={i} 

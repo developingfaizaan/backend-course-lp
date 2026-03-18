@@ -16,10 +16,10 @@ const FooterSection = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
             </p>
           </div>
           
-          <div className="flex justify-end sm:col-span-2 lg:col-span-2">
+          <div className="flex justify-start sm:justify-end sm:col-span-2 lg:col-span-2">
             <div>
               <h4 className="font-bold mb-6 uppercase tracking-widest text-[10px] md:text-xs text-white/20">Connect</h4>
-              <ul className="space-y-4 text-xs md:text-sm text-white/60">
+              <ul className="flex flex-row flex-wrap gap-x-6 gap-y-3 sm:flex-col sm:space-y-4 text-xs md:text-sm text-white/60">
                 <li><a href="https://twitter.com/jsmasterypro" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">Twitter</a></li>
                 <li><a href="https://discord.com/invite/n6EdbFJ" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">Discord</a></li>
                 <li><a href="https://youtube.com/@javascriptmastery" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">YouTube</a></li>
