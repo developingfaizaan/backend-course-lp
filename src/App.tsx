@@ -14,18 +14,17 @@ import ObservabilitySection from './sections/ObservabilitySection';
 import CareerEvolutionSection from './sections/CareerEvolutionSection';
 import TrustedPlatformSection from './sections/TrustedPlatformSection';
 import ComparisonSection from './sections/ComparisonSection';
-import CurriculumSection from './sections/CurriculumSection';
 import TimelineEstimator from './sections/TimelineEstimator';
 import SalaryEstimator from './sections/SalaryEstimator';
-import PricingSection from './sections/PricingSection';
 import ValueComparison from './sections/ValueComparison';
 import TransformationSection from './sections/TransformationSection';
 import CTASection from './sections/CTASection';
 import FooterSection from './sections/FooterSection';
+import WaitlistModal from './components/WaitlistModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Navbar = () => {
+const Navbar = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -37,15 +36,14 @@ const Navbar = () => {
         </div>
         
         <div className="hidden lg:flex items-center gap-12 text-sm font-medium text-white/60">
-          <a href="#" className="hover:text-backend-green transition-colors">Curriculum</a>
-          <a href="#" className="hover:text-backend-green transition-colors">Pricing</a>
-          <a href="#" className="hover:text-backend-green transition-colors">Success Stories</a>
-          <a href="#" className="hover:text-backend-green transition-colors">FAQ</a>
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="hidden sm:block px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-backend-green transition-all duration-300">
-            Enroll Now
+          <button 
+            onClick={onOpenWaitlist}
+            className="hidden sm:block px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-backend-green transition-all duration-300 cursor-pointer"
+          >
+            Join the waitlist
           </button>
           
           <button 
@@ -67,12 +65,14 @@ const Navbar = () => {
             className="lg:hidden bg-black border-b border-white/5 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-6 text-lg font-medium text-white/60">
-              <a href="#" onClick={() => setIsOpen(false)} className="hover:text-backend-green transition-colors">Curriculum</a>
-              <a href="#" onClick={() => setIsOpen(false)} className="hover:text-backend-green transition-colors">Pricing</a>
-              <a href="#" onClick={() => setIsOpen(false)} className="hover:text-backend-green transition-colors">Success Stories</a>
-              <a href="#" onClick={() => setIsOpen(false)} className="hover:text-backend-green transition-colors">FAQ</a>
-              <button className="w-full py-4 bg-white text-black font-bold rounded-xl text-center">
-                Enroll Now
+              <button 
+                onClick={() => {
+                  setIsOpen(false);
+                  onOpenWaitlist();
+                }}
+                className="w-full py-4 bg-white text-black font-bold rounded-xl text-center cursor-pointer"
+              >
+                Join the waitlist
               </button>
             </div>
           </motion.div>
@@ -86,6 +86,8 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
+  const [isWaitlistOpen, setIsWaitlistOpen] = React.useState(false);
+
   useEffect(() => {
     // Global reveal animation for sections
     const sections = document.querySelectorAll('section');
@@ -108,33 +110,35 @@ export default function App() {
     });
   }, []);
 
+  const onOpenWaitlist = () => setIsWaitlistOpen(true);
+  const onCloseWaitlist = () => setIsWaitlistOpen(false);
+
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
       <div className="noise-overlay" />
-      <Navbar />
+      <Navbar onOpenWaitlist={onOpenWaitlist} />
       
       <main>
-        <HeroSection />
+        <HeroSection onOpenWaitlist={onOpenWaitlist} />
         <LogosSection />
         <ScalabilitySection />
         <SystemDesignSection />
-        <AuthSection />
+        <AuthSection onOpenWaitlist={onOpenWaitlist} />
         <FeaturesGrid />
         <SpeedScaleSection />
         <ObservabilitySection />
         <CareerEvolutionSection />
         <TrustedPlatformSection />
         <ComparisonSection />
-        <CurriculumSection />
         <TimelineEstimator />
         <SalaryEstimator />
-        <PricingSection />
         <ValueComparison />
         <TransformationSection />
-        <CTASection />
+        <CTASection onOpenWaitlist={onOpenWaitlist} />
       </main>
 
-      <FooterSection />
+      <FooterSection onOpenWaitlist={onOpenWaitlist} />
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={onCloseWaitlist} />
     </div>
   );
 }

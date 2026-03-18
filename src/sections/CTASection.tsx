@@ -104,7 +104,7 @@ const SmartCitySVG = () => {
   );
 };
 
-const CTASection = () => {
+const CTASection = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
   return (
     <section className="relative py-20 md:py-32 overflow-hidden bg-black">
       {/* Background Illustration */}
@@ -119,25 +119,24 @@ const CTASection = () => {
             <span className="text-gradient-green italic">Future of the Web?</span>
           </h2>
           <p className="text-base md:text-xl text-white/60 mb-10 md:mb-12 leading-relaxed max-w-2xl mx-auto">
-            Join 5,000+ engineers who have transformed their careers. Master the skills needed to build 
-            scalable, production-ready systems from scratch.
+            Join the next generation of top-tier backend engineers who are transforming their careers. 
+            Master the skills needed to build scalable, production-ready systems from scratch.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-            <button className="w-full sm:w-auto group relative px-8 md:px-10 py-4 md:py-5 bg-backend-green text-black font-bold rounded-full text-base md:text-lg hover:scale-105 transition-all duration-300 overflow-hidden">
+            <button 
+              onClick={onOpenWaitlist}
+              className="w-full sm:w-auto group relative px-8 md:px-10 py-4 md:py-5 bg-backend-green text-black font-bold rounded-full text-base md:text-lg hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer"
+            >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Enroll Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Join the waitlist <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </button>
-            
-            <button className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-white/5 border border-white/10 text-white font-bold rounded-full text-base md:text-lg hover:bg-white/10 transition-all duration-300">
-              View Curriculum
             </button>
           </div>
 
           <p className="mt-8 text-sm text-white/40">
-            30-day money-back guarantee • Lifetime access • Certificate included
+            Lifetime access • Certificate included
           </p>
         </div>
       </div>

@@ -4,10 +4,14 @@ const TimelineEstimator = () => {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
 
   const getTimeline = (hours: number) => {
-    if (hours <= 5) return { months: 12, label: "Steady Pace" };
-    if (hours <= 10) return { months: 7, label: "Recommended" };
-    if (hours <= 20) return { months: 4, label: "Fast Track" };
-    return { months: 3, label: "Intensive" };
+    if (hours >= 40) return { months: 1, label: "Intensive" };
+    if (hours >= 30) return { months: 2, label: "Fast Track" };
+    if (hours >= 25) return { months: 3, label: "Fast Track" };
+    if (hours >= 20) return { months: 4, label: "Accelerated" };
+    if (hours >= 15) return { months: 6, label: "Accelerated" };
+    if (hours >= 10) return { months: 8, label: "Recommended" };
+    if (hours >= 5) return { months: 10, label: "Steady Pace" };
+    return { months: 12, label: "Steady Pace" };
   };
 
   const timeline = getTimeline(hoursPerWeek);

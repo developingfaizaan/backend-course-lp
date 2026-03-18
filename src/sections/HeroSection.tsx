@@ -6,22 +6,22 @@ import { cn } from '../utils/cn';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSection = () => {
+const HeroSection = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
 
-  const [selectedSkills, setSelectedSkills] = useState<string[]>(['Docker', 'Redis', 'gRPC']);
+  const [selectedSkills, setSelectedSkills] = useState<string[]>(['Docker', 'Redis', 'PostgreSQL']);
 
   const skills = [
-    { label: 'Docker', icon: <Package size={16} />, value: 15000, color: 'text-blue-400' },
-    { label: 'K8s', icon: <Server size={16} />, value: 25000, color: 'text-indigo-400' },
-    { label: 'Redis', icon: <Zap size={16} />, value: 10000, color: 'text-red-400' },
-    { label: 'gRPC', icon: <Globe size={16} />, value: 12000, color: 'text-cyan-400' },
-    { label: 'Kafka', icon: <Cpu size={16} />, value: 20000, color: 'text-orange-400' },
-    { label: 'Terraform', icon: <Shield size={16} />, value: 18000, color: 'text-purple-400' },
+    { label: 'Docker', icon: <Package size={16} />, value: 20000, color: 'text-blue-400' },
+    { label: 'WebSocket', icon: <Zap size={16} />, value: 30000, color: 'text-indigo-400' },
+    { label: 'Redis', icon: <Cpu size={16} />, value: 15000, color: 'text-red-400' },
+    { label: 'PostgreSQL', icon: <Database size={16} />, value: 18000, color: 'text-cyan-400' },
+    { label: 'AWS', icon: <Server size={16} />, value: 28000, color: 'text-orange-400' },
+    { label: 'Nodejs', icon: <Code size={16} />, value: 22000, color: 'text-purple-400' },
   ];
 
   const baseSalary = 40000;
@@ -86,11 +86,11 @@ const HeroSection = () => {
             The ultimate engineering program for the modern backend developer.
           </p>
           <div ref={ctaRef} className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-backend-green text-black font-semibold rounded-full flex items-center justify-center gap-2 hover:bg-backend-accent transition-all duration-300 shadow-[0_0_20px_rgba(0,255,178,0.3)]">
-              Start Learning <ArrowRight size={18} />
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-full flex items-center justify-center gap-2 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-              View Curriculum <Play size={16} fill="currentColor" />
+            <button 
+              onClick={onOpenWaitlist}
+              className="w-full sm:w-auto px-8 py-4 bg-backend-green text-black font-semibold rounded-full flex items-center justify-center gap-2 hover:bg-backend-accent transition-all duration-300 shadow-[0_0_20px_rgba(0,255,178,0.3)] cursor-pointer"
+            >
+              Join the waitlist <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -112,7 +112,7 @@ const HeroSection = () => {
                       key={i} 
                       onClick={() => toggleSkill(skill.label)}
                       className={cn(
-                        "p-3 rounded-xl border text-xs font-mono flex items-center gap-3 transition-all duration-300",
+                        "p-3 rounded-xl border text-xs font-mono flex items-center gap-3 transition-all duration-300 cursor-pointer",
                         selectedSkills.includes(skill.label) 
                           ? "bg-white/10 border-white/40 text-white shadow-[0_0_20px_rgba(255,255,255,0.1)] scale-105" 
                           : "bg-black/40 border-white/5 text-white/30 hover:border-white/20"

@@ -63,17 +63,17 @@ const SpeedScaleSection = () => {
               </div>
             </div>
 
-            <div className="aspect-video relative rounded-2xl overflow-hidden border border-white/10 bg-black/60 group p-4 md:p-6 flex flex-col justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-backend-green/10 to-transparent opacity-50" />
+            <div className="aspect-video relative rounded-2xl overflow-hidden border border-white/10 bg-black/60 group p-6 md:p-10 flex flex-col justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-backend-green/10 to-transparent opacity-30" />
               
               {/* API Flow Animation */}
-              <div className="relative z-10 flex items-center justify-between px-4 md:px-12">
+              <div className="relative z-10 flex items-center justify-between px-2 md:px-8">
                 {/* Client Node */}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center animate-pulse">
-                    <Layout size={14} className="md:size-20 text-white/40" />
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center animate-pulse">
+                    <Layout className="w-5 h-5 md:w-7 md:h-7 text-white/60" />
                   </div>
-                  <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/20">Client</span>
+                  <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/40">Client</span>
                 </div>
 
                 {/* API Path */}
@@ -83,10 +83,10 @@ const SpeedScaleSection = () => {
                 </div>
 
                 {/* Server Node */}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-backend-green/10 border border-backend-green/30 flex items-center justify-center relative">
-                    <div className="absolute inset-0 bg-backend-green/20 blur-xl rounded-full animate-pulse" />
-                    <Zap size={18} className="md:size-24 text-backend-green relative z-10" />
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-backend-green/10 border border-backend-green/30 flex items-center justify-center relative">
+                    <div className="absolute inset-0 bg-backend-green/20 blur-2xl rounded-full animate-pulse" />
+                    <Zap className="w-7 h-7 md:w-10 md:h-10 text-backend-green relative z-10" />
                   </div>
                   <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-backend-green font-bold">API Gateway</span>
                 </div>
@@ -97,16 +97,16 @@ const SpeedScaleSection = () => {
                 </div>
 
                 {/* DB Node */}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Database size={14} className="md:size-20 text-white/40" />
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Database className="w-5 h-5 md:w-7 md:h-7 text-white/60" />
                   </div>
-                  <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/20">PostgreSQL</span>
+                  <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/40">PostgreSQL</span>
                 </div>
               </div>
 
-              <div className="absolute bottom-2 md:bottom-4 left-0 right-0 text-center">
-                <div className="text-[7px] md:text-[9px] uppercase tracking-[0.4em] text-white/20">Production API Infrastructure</div>
+              <div className="absolute bottom-3 md:bottom-6 left-0 right-0 text-center">
+                <div className="text-[7px] md:text-[9px] uppercase tracking-[0.4em] text-white/40">Production API Infrastructure</div>
               </div>
             </div>
           </div>

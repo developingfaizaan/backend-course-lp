@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FooterSection = () => {
+const FooterSection = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
   return (
     <footer className="py-12 md:py-20 border-t border-white/5 bg-black">
       <div className="container mx-auto px-6">
@@ -16,24 +16,14 @@ const FooterSection = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 gap-8 sm:col-span-2 lg:col-span-2">
-            <div>
-              <h4 className="font-bold mb-6 uppercase tracking-widest text-[10px] md:text-xs text-white/20">Program</h4>
-              <ul className="space-y-4 text-xs md:text-sm text-white/60">
-                <li><a href="#" className="hover:text-backend-green transition-colors">Curriculum</a></li>
-                <li><a href="#" className="hover:text-backend-green transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-backend-green transition-colors">Success Stories</a></li>
-                <li><a href="#" className="hover:text-backend-green transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-
+          <div className="flex justify-end sm:col-span-2 lg:col-span-2">
             <div>
               <h4 className="font-bold mb-6 uppercase tracking-widest text-[10px] md:text-xs text-white/20">Connect</h4>
               <ul className="space-y-4 text-xs md:text-sm text-white/60">
-                <li><a href="#" className="hover:text-backend-green transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-backend-green transition-colors">Discord</a></li>
-                <li><a href="#" className="hover:text-backend-green transition-colors">YouTube</a></li>
-                <li><a href="#" className="hover:text-backend-green transition-colors">LinkedIn</a></li>
+                <li><a href="https://twitter.com/jsmasterypro" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">Twitter</a></li>
+                <li><a href="https://discord.com/invite/n6EdbFJ" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">Discord</a></li>
+                <li><a href="https://youtube.com/@javascriptmastery" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">YouTube</a></li>
+                <li><a href="https://www.linkedin.com/company/javascriptmastery/" target="_blank" rel="noopener noreferrer" className="hover:text-backend-green transition-colors cursor-pointer">LinkedIn</a></li>
               </ul>
             </div>
           </div>
@@ -41,7 +31,7 @@ const FooterSection = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 md:pt-10 border-t border-white/5 gap-6">
           <div className="text-[10px] md:text-xs text-white/20 text-center md:text-left">
-            © 2024 Backend Engineering Masterclass. All rights reserved.
+            © 2026 Backend Engineering Masterclass. All rights reserved.
           </div>
           <div className="flex gap-6 md:gap-8 text-[10px] md:text-xs text-white/20">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

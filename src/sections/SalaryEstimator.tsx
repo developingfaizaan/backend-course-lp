@@ -32,7 +32,7 @@ const SalaryEstimator = () => {
                 key={status}
                 onClick={() => setCurrentStatus(status)}
                 className={cn(
-                  "w-full p-4 md:p-6 text-left rounded-2xl border transition-all duration-300",
+                  "w-full p-4 md:p-6 text-left rounded-2xl border transition-all duration-300 cursor-pointer",
                   currentStatus === status 
                     ? "bg-backend-green/10 border-backend-green text-backend-green" 
                     : "bg-white/5 border-white/10 text-white/40 hover:border-white/20"

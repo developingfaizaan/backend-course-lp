@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Lock, Fingerprint, Key, Shield, UserCheck, Scan, ArrowRight, User, Globe, Database, Cpu } from 'lucide-react';
 import { cn } from '../utils/cn';
 
-const AuthSection = () => {
+const AuthSection = ({ onOpenWaitlist }: { onOpenWaitlist: () => void }) => {
   const [isScanning, setIsScanning] = useState(false);
   const [scanStatus, setScanStatus] = useState('Idle');
   const [isVerified, setIsVerified] = useState(false);
@@ -112,28 +112,23 @@ const AuthSection = () => {
           </h2>
           <p className="text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
             Security is not an afterthought. Master the implementation of robust identity systems, 
-            from JWT and OAuth 2.0 to fine-grained RBAC and security best practices for distributed systems.
+            from JWT and OAuth to security best practices for distributed systems.
           </p>
-          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-10">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-10 text-left">
             <div className="space-y-2">
-              <div className="text-backend-cyan font-bold text-sm">OAuth 2.0 / OIDC</div>
+              <div className="text-backend-cyan font-bold text-sm">OAuth</div>
               <p className="text-xs text-white/40">Third-party identity integration at scale.</p>
             </div>
             <div className="space-y-2">
               <div className="text-backend-green font-bold text-sm">JWT & Sessions</div>
               <p className="text-xs text-white/40">Secure stateless and stateful authentication.</p>
             </div>
-            <div className="space-y-2">
-              <div className="text-backend-accent font-bold text-sm">RBAC / ABAC</div>
-              <p className="text-xs text-white/40">Complex authorization and access control.</p>
-            </div>
-            <div className="space-y-2">
-              <div className="text-white font-bold text-sm">Web Crypto API</div>
-              <p className="text-xs text-white/40">Modern encryption and hashing techniques.</p>
-            </div>
           </div>
-          <button className="hidden lg:flex text-backend-green font-bold items-center gap-2 hover:gap-4 transition-all duration-300">
-            Explore Security Curriculum <ArrowRight size={18} />
+          <button 
+            onClick={onOpenWaitlist}
+            className="hidden lg:flex text-backend-green font-bold items-center gap-2 hover:gap-4 transition-all duration-300 cursor-pointer"
+          >
+            Join the waitlist <ArrowRight size={18} />
           </button>
         </div>
       </div>
